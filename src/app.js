@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const { env } = require("./config/env");
 const auditRoutes = require("./routes/audit.routes");
 const healthRoutes = require("./routes/health.routes");
 const { errorHandler } = require("./middleware/errorHandler");
@@ -20,7 +21,7 @@ app.use((req, res, next) => {
   return next();
 });
 
-app.use("/screenshots", express.static(path.join(__dirname, "..", "storage", "screenshots")));
+app.use("/screenshots", express.static(path.join(env.storageDir, "screenshots")));
 
 app.use("/api/health", healthRoutes);
 app.use("/api/audits", auditRoutes);
