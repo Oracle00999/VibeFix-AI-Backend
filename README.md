@@ -14,6 +14,14 @@ npm install
 npm run install:browsers
 ```
 
+On hosted Linux environments such as Railway, the `postinstall` script runs:
+
+```bash
+playwright install --with-deps chromium
+```
+
+That installs Chromium and the system packages needed for real screenshot capture.
+
 3. Create `Backend/.env` from `Backend/.env.example` and set `DATABASE_URL`.
 
 4. Create the database if it does not exist yet:

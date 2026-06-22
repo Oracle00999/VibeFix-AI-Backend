@@ -7,6 +7,7 @@
     "db:init": "node scripts/initDb.js",
     "dev": "nodemon src/server.js",
     "install:browsers": "playwright install chromium",
+    "postinstall": "playwright install --with-deps chromium",
     "start": "node src/server.js",
     "test": "node --test"
   },

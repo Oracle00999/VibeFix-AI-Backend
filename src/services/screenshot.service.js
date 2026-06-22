@@ -31,7 +31,10 @@ async function captureWithPlaywright(url, auditId) {
     throw new Error("Playwright is not installed yet.");
   }
 
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+  });
 
   try {
     const desktop = await captureViewport(browser, url, auditId, "desktop");
